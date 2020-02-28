@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AlexKidd</title>
+    <style>
+        body,
+        html {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: #FFFFA3;
+        }
+        #titulo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2vw;
+        }
+
+        #fondo {
+            background-image: url("fondo/campo.png");
+            width: 1014px;
+            height: 730px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5px;
+
+        }
+        #alex{
+            position: absolute;
+            margin-top: 557px;
+            margin-left: 140px;
+
+        }
+        #enemigo{
+            position: absolute;
+            margin-top: 523px;
+            margin-left: 645px;
+
+        }
+        #nube2{
+            position: absolute;
+            margin-top: 270px;
+            margin-left: 690px;
+
+        }
+        #nube1{
+            position: absolute;
+            margin-top: 270px;
+            margin-left: 100px;
+
+        }
+        #ganas{
+            position: absolute;
+            
+        }
+        #ganascartel{
+            
+            margin-top: 100px;
+            margin-left: 50px;
+        }
+
+        
+    </style>
+    <script type="text/javascript">
+        //var audio = new Audio('Alexmusic.mp3');
+        //audio.play();
+        contador = 0;
+        nubeContador = 0;
+        nubeContador2 =0;
+        contadoraccion=0;
+        var movi;
+        var minubefinal="./nubes/nubepiedra.png";
+        var enemigofinal="./nubes/nubepiedra.png";
+        var valor1=38;
+        var valor2=40;
+        nubes = ["./nubes/nubepiedra.png","./nubes/nubetijeras.png","./nubes/nubemano.png"];
+        function cambiarnpcs() {
+            var alex = ["./Personajes/alex2.png", "./Personajes/alex1v2.png"];
+            var mano = ["./Personajes/cabezamano1.png", "./Personajes/cabezamano2.png"]
+            document.getElementById("alexbatalla").src = alex[contador];
+            document.getElementById("cabezamanobatalla").src = mano[contador];
+            contador++;
+            if (contador == 2) contador = 0;
+
+        }
+        function cambiarnube(){
+            document.getElementById("nube1ini").src=nubes[nubeContador];
+            // para saber el tipo de letra console.log(event.which);
+            
+            if(event.keyCode==valor1) {
+                nubeContador++;
+                if (nubeContador == 3) nubeContador = 0;
+                minubefinal= nubes[nubeContador];
+                document.getElementById("nube1ini").src=nubes[nubeContador];
+                
+            }
+            if(event.keyCode==valor2) {
+                nubeContador--;
+                if (nubeContador == -1) nubeContador = 2;
+                document.getElementById("nube1ini").src=nubes[nubeContador];
+                minubefinal= nubes[nubeContador];
+                
+            }
+        }
+        function cambiarnube2(){
+            var eleccion = Math.round(Math.random()*2);
+            document.getElementById("nube2ini").src=nubes[eleccion];
+            enemigofinal=nubes[eleccion];
+            if (eleccion == 3) eleccion = 0;
+            
+
+        }
+        function movimientobrazo(){
+            var alexaccion= ["./Personajes/alex2.png","./Personajes/alex53.png","./Personajes/alex2.png","./Personajes/alex53.png",];
+            var cabezaccion= ["./Personajes/cabezamanobracito.png","./Personajes/cabezamanobracito2.png","./Personajes/cabezamanobracito.png","./Personajes/cabezamanobracito2.png",];
+            document.getElementById("alexbatalla").src = alexaccion[contadoraccion];
+            document.getElementById("cabezamanobatalla").src = cabezaccion[contadoraccion];
+            contadoraccion++;
+            if (contadoraccion == 4) contadoraccion = 0;   
+        }
+        function enviarEleccion(){
+            setTimeout(function(){
+                
+                clearInterval(movi);
+                valor1=1;
+                valor2=1;   
+                switch(minubefinal){
+                    case "./nubes/nubepiedra.png":
+                        document.getElementById("alexbatalla").src="./Personajes/alexpiedra.png";
+                        if(enemigofinal=="./nubes/nubepiedra.png"){
+                            document.getElementById("cabezamanobatalla").src="./Personajes/cabezamanopiedra.png";
+                            document.getElementById("ganascartel").src="./fondo/empate.png";
+                        } 
+                        if(enemigofinal=="./nubes/nubemano.png"){
+                            document.getElementById("cabezamanobatalla").src="./Personajes/cabezamanomano.png";
+                            document.getElementById("ganascartel").src="./fondo/pierdes.png";
+                        }  
+                        if(enemigofinal=="./nubes/nubetijeras.png"){
+                            document.getElementById("cabezamanobatalla").src="./Personajes/cabezamanotijeras.png";
+                            document.getElementById("ganascartel").src="./fondo/ganas.png";
+                        }  
+                    break;
+                    case "./nubes/nubemano.png":
+                    document.getElementById("alexbatalla").src="./Personajes/alexpapel.png";
+                        if(enemigofinal=="./nubes/nubepiedra.png") {
+                            document.getElementById("cabezamanobatalla").src="./Personajes/cabezamanopiedra.png";
+                            document.getElementById("ganascartel").src="./fondo/ganas.png";
+                        }
+                        if(enemigofinal=="./nubes/nubemano.png") {
+                            document.getElementById("cabezamanobatalla").src="./Personajes/cabezamanomano.png";
+                            document.getElementById("ganascartel").src="./fondo/empate.png";
+                        }
+                        if(enemigofinal=="./nubes/nubetijeras.png") {
+                            document.getElementById("cabezamanobatalla").src="./Personajes/cabezamanotijeras.png";
+                            document.getElementById("ganascartel").src="./fondo/pierdes.png";
+                        }
+                    break;
+                    case "./nubes/nubetijeras.png":
+                        document.getElementById("alexbatalla").src="./Personajes/alextijeras.png";
+                        if(enemigofinal=="./nubes/nubepiedra.png") {
+                            document.getElementById("cabezamanobatalla").src="./Personajes/cabezamanopiedra.png";
+                            document.getElementById("ganascartel").src="./fondo/pierdes.png";
+                        }
+                        if(enemigofinal=="./nubes/nubemano.png") {
+                            document.getElementById("cabezamanobatalla").src="./Personajes/cabezamanomano.png";
+                            document.getElementById("ganascartel").src="./fondo/ganas.png";
+                        }
+                        if(enemigofinal=="./nubes/nubetijeras.png") {
+                            document.getElementById("cabezamanobatalla").src="./Personajes/cabezamanotijeras.png";
+                            document.getElementById("ganascartel").src="./fondo/empate.png";
+                        }
+                    break;
+                    default: 
+                    console.log("error");
+                    break;
+                }
+            },12300);
+            
+        }
+        function partidanueva(){
+            
+            if(event.keyCode==32) window.location="borrador.html";
+        }
+        
+        function recogerEleccion(){
+            var jugador=document.getElementById("nube1").src;
+            var enemigo=document.getElementById("nube1").src;
+        }
+        var movimientonpcs=setInterval(function() {cambiarnpcs()}, 400);
+        var cambiarini=setInterval(function() {cambiarnube2()}, 600);
+        setTimeout(function(){clearInterval(cambiarini)},12000);
+        setTimeout(function(){
+                    clearInterval(movimientonpcs);
+                    movi=setInterval(function(){movimientobrazo()}, 500);
+                   
+        },9000);
+        //Este time out es para que se actualice al final de la partida 
+        setTimeout(function(){window.location="borrador.html"},16000);
+
+        //Se usamos el addEventListener para recoger cuando presionamos una tecla del teclado 
+        //mejor que con el onpresskey ya que este no recoge las flechas. El keydown significa cuando la tecla esta presionada,.
+        window.addEventListener("keydown", function (event) {
+            cambiarnube();
+            partidanueva();
+        },false);
+        enviarEleccion();
+    </script>
+</head>
+
+<body  style="overflow:hidden">
+    <audio autoplay="" id="videomain">
+        <source src="Alexmusic.mp3" type="audio/mp3">
+    </audio>
+    <div id="titulo">
+        <img src="./fondo/nombre.png" alt="titulo">
+    </div>
+    <div id="fondo">
+        <div id="ganas">
+            <img id="ganascartel"  src="">
+        </div>
+        <div id="alex">
+            <img id="alexbatalla" src="./Personajes/alex1v2.png" alt="alex">
+        </div>
+        <div id="enemigo">
+            <img id="cabezamanobatalla" src="./Personajes/cabezamano2.png" alt="alex">
+        </div>
+        <div id="nube1">
+            <img id="nube1ini" src="./nubes/nubepiedra.png" alt="nube">
+        </div>
+        <div id="nube2">
+            <img id="nube2ini" src="./nubes/nubepiedra.png" alt="nube">
+        </div>
+    </div>
+    
+    
+</body>
+
+</html>
