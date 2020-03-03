@@ -24,7 +24,7 @@ function cambiarLetras(){
 }
 
 setTimeout(function(){setInterval(function () { cambiarLetras() }, 100);},5000);
-function reenviar() { window.location = "nombreUsuario.html"; }
+function reenviar() { window.location = "nombreUsuario.php"; }
 
 setTimeout(function(){
     window.addEventListener("keydown", function (event) {
