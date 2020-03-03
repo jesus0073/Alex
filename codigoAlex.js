@@ -40,7 +40,6 @@ function cambiarnube2() {
     var eleccion = Math.round(Math.random() * 2);
     document.getElementById("nube2ini").src = nubes[eleccion];
     enemigofinal = nubes[eleccion];
-    if (eleccion == 3) eleccion = 0;
 }
 //Funcion para la acción de las manos
 function movimientobrazo() {

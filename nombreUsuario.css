@@ -1,0 +1,44 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFA3;
+}
+form{
+    background-image: url("./fondo/fondoformulario.png");
+    width: 449px;
+    height: 347px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+
+}
+#nombre{
+    
+    margin-top: 50px;
+    
+}
+#envio{
+    margin-top: 50px;
+    width: 180px;
+    height: 60px;
+    
+    background-image: url("./fondo/botonEnvio1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#envio:hover{
+    background-image: url("./fondo/botonEnvio.png");
+}
+#titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vw;
+}
