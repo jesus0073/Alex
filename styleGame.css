@@ -1,0 +1,58 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFA3;
+}
+#titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vw;
+}
+
+#fondo {
+    background-image: url("fondo/campo.png");
+    width: 1014px;
+    height: 730px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+
+}
+#alex{
+    position: absolute;
+    margin-top: 557px;
+    margin-left: 140px;
+
+}
+#enemigo{
+    position: absolute;
+    margin-top: 523px;
+    margin-left: 645px;
+
+}
+#nube2{
+    position: absolute;
+    margin-top: 270px;
+    margin-left: 690px;
+
+}
+#nube1{
+    position: absolute;
+    margin-top: 270px;
+    margin-left: 100px;
+
+}
+#ganas{
+    position: absolute;
+    
+}
+#ganascartel{
+    
+    margin-top: 100px;
+    margin-left: 50px;
+}
+

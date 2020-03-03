@@ -1,0 +1,60 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFAA9;
+}
+#contenedor{
+    width: 1014px;
+    height: 730px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+ 
+}
+.foto1{
+    position: absolute;
+    margin-left: 250px;
+    margin-top: 50px;
+    
+}
+.foto2{
+    position: absolute;
+    margin-left: 660px;
+    margin-top: 40px;
+    width: 290px;
+    
+}
+.foto3{
+    position: absolute;
+    margin-left: 400px;
+    margin-top: 450px;
+    
+}
+.foto4{
+    position: absolute;
+    margin-left: 20px;
+    
+}
+.foto5{
+    position: absolute;
+    margin-left: 805px;
+    margin-top: 300px;
+
+}
+.foto6{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 300px;
+    width: 400px;
+
+}
+.foto7{
+    position: absolute;
+    margin-left: 480px;
+    margin-top: 690px;
+    width: 450px;
+
+}
