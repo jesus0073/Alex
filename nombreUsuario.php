@@ -13,7 +13,7 @@
     <form action="cargar.html">
             <label for="nombre"></label>
             <input id="nombre" name="nombre" type="text">
-            <input id="envio" type="button">
+            <button id="envio"></button>
     </form>
 </body>
 </html>
