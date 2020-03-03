@@ -27,7 +27,7 @@ form{
     margin-top: 50px;
     width: 180px;
     height: 60px;
-    
+    border: none;
     background-image: url("./fondo/botonEnvio1.png");
     background-size: cover;
     background-position: center;
